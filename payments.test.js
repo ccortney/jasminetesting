@@ -40,19 +40,20 @@ describe("Payments Test", function() {
         expect(table[2].innerText).toEqual('40%');
     });
 
-    it('should correctly calculate tipPercentAvg on updateSummary()', function() {
-        updateSummary();
+    // it('should correctly calculate tipPercentAvg on updateSummary()', function() {
+    //     updateSummary();
 
-    });
+    // });
 
     it('should update the summary table on updateSummary()', function() {
-        updateSummary();
+        submitPaymentInfo();
 
         let summaryTable = document.querySelectorAll('#summaryTable tbody tr td');
         expect(summaryTable.length).toEqual(3);
-        // expect(summaryTable[0].innerText).toEqual('$50');
-        // expect(summaryTable[1].innerText).toEqual('$20');
-        // expect(summaryTable[2].in 
+        expect(summaryTable[0].innerText).toEqual('$50');
+        expect(summaryTable[1].innerText).toEqual('$20');
+        expect(summaryTable[2].innerText).toEqual('40%');
+
     });
 
     afterEach(function () {
@@ -65,27 +66,6 @@ describe("Payments Test", function() {
     });
 
 })
-
-
-
-// function updateSummary() {
-//     let tipPercentAvg;
-//     let paymentTotal = sumPaymentTotal('tipPercent');
-//     let numberOfPayments = Object.keys(allPayments).length;
-  
-//     if (paymentTotal === 0 && numberOfPayments === 0) {
-//       tipPercentAvg = 0;
-//     } else {
-//       tipPercentAvg = paymentTotal / Object.keys(allPayments).length;
-//     }
-  
-//     summaryTds[0].innerHTML = '$' + sumPaymentTotal('billAmt');
-//     summaryTds[1].innerHTML = '$' + sumPaymentTotal('tipAmt');
-//     summaryTds[2].innerHTML =  Math.round(tipPercentAvg) + '%';
-//   }
-
-
-
 
 
 
